@@ -2,8 +2,7 @@
 #include "Application.h"
 
 #include "Hazel/Log.h"
-
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Hazel {
 
@@ -34,8 +33,6 @@ namespace Hazel {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
-		// HZ_CORE_TRACE("{0}", e);
-
 		for (auto it = m_layerStack.end(); it != m_layerStack.begin();)
 		{
 			(*--it)->OnEvent(e);
@@ -57,7 +54,6 @@ namespace Hazel {
 			m_Window->OnUpdate();
 		}
 	}
-
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
