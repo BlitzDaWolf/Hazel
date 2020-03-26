@@ -1,3 +1,5 @@
 *.user
 bin*/
 .vs/
+*.sln
+*.vcxproj*
